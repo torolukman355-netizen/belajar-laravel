@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('beranda',[
-        "salam" => "<b>Selamat Pagi </b>",
-        "nama" => "Daffa"
+        "salam" => "<b>Selamat Datang </b>",
+        "nama" => "Lukman"
     ]);
 });
 
@@ -14,7 +14,7 @@ Route::get('/profil', function () {
         'roles'=>[
             [
                 'posisi'=> 'CEO',
-                'tugas'=> 'Memimpin Perusahaan'
+                'tugas'=> 'Mengelola Perusahaan'
             ],
             [
                 'posisi'=> 'CTO',
@@ -31,9 +31,10 @@ Route::get('/hubungi', function () {
 Route::get('/produk', function () {
 
     $products = [
-        ['id' => 1, 'nama' => 'Laptop', 'harga' => 8000000],
-        ['id' => 2, 'nama' => 'HP', 'harga' => 3000000],
-        ['id' => 3, 'nama' => 'Tablet', 'harga' => 5000000],
+        ['id' => 1, 'nama' => 'nasi goreng', 'harga' => 15000],
+        ['id' => 2, 'nama' => 'bakso', 'harga' => 20000],
+        ['id' => 3, 'nama' => 'mie ayam', 'harga' => 16000],
+        ['id' => 4, 'nama' => 'sate', 'harga' => 25000],
     ];
 
     return view('produk', compact('products'));
@@ -42,9 +43,10 @@ Route::get('/produk', function () {
 Route::get('/produk/{id}', function ($id) {
 
     $products = [
-        ['id' => 1, 'nama' => 'Laptop', 'harga' => 8000000],
-        ['id' => 2, 'nama' => 'HP', 'harga' => 3000000],
-        ['id' => 3, 'nama' => 'Tablet', 'harga' => 5000000],
+        ['id' => 1, 'nama' => 'nasi goreng', 'harga' => 15000],
+        ['id' => 2, 'nama' => 'bakso', 'harga' => 20000],
+        ['id' => 3, 'nama' => 'mie ayam', 'harga' => 16000],
+        ['id' => 4, 'nama' => 'sate', 'harga' => 25000],
     ];
 
     $product = collect($products)->firstWhere('id', $id);
