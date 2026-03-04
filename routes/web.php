@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostingController;
 
 Route::get('/', function () {
     return view('beranda',[
@@ -8,6 +9,7 @@ Route::get('/', function () {
         "nama" => "Lukman"
     ]);
 });
+
 
 Route::get('/profil', function () {
     return view('tentang', [
@@ -25,7 +27,9 @@ Route::get('/profil', function () {
 });
 
 Route::get('/hubungi', function () {
-    return view('kontak');
+    $tanya2 = session()->get ('tanya2',[]);
+
+    return view('kontak',['tanya2'=>$tanya2,]);
 });
 
 Route::get('/produk', function () {
@@ -57,3 +61,20 @@ Route::get('/produk/{id}', function ($id) {
 
     return view('detail-produk', compact('product'));
 });
+
+Route::post('/tanya', function (){
+    $tanya = request()->input('tanya');
+    session()->push('tanya2', $tanya);
+
+    return redirect('/hubungi');
+});
+
+Route::get('/tanya/hapus', function () {
+    session()->forget('tanya2');
+    return redirect('/hubungi');
+});
+
+
+Route::get('/posting', [PostingController::class, 'index']);
+Route::get('/posting/{Nomor}', [PostingController::class, 'show']);
+Route::post('/posting', [PostingController::class, 'store']);

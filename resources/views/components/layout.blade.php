@@ -50,6 +50,12 @@ class="rounded-md px-3 py-2 text-sm font-medium
 {{ request()->is('hubungi') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">
 Kontak
 </a>
+
+<a href="/produk" 
+class="rounded-md px-3 py-2 text-sm font-medium
+{{ request()->is('produk') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">
+Produk
+</a>
             </div>
           </div>
         </div>
@@ -115,6 +121,13 @@ class="block rounded-md px-3 py-2 text-base font-medium
 {{ request()->is('hubungi') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">
 Kontak
 </a>
+
+<a href="/produk"
+class="block rounded-md px-3 py-2 text-base font-medium
+{{ request()->is('produk') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">
+Produk
+</a>
+
       </div>
       <div class="border-t border-white/10 pt-4 pb-3">
         <div class="flex items-center px-5">
